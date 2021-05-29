@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\GeometrySandbox.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{7224C9EB-7CA5-4EFE-9702-784880DCD8CA}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\GeometrySandbox.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\GeometrySandboxEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{FA2014FC-E6A3-4425-A3E6-0E6732580FE1}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\GeometrySandbox">
+      <UniqueIdentifier>{97CC46F6-6CFA-4D21-94AF-7781F05C7C38}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\GeometrySandbox\GeometrySandbox.Build.cs">
+      <Filter>Source\GeometrySandbox</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\GeometrySandbox\GeometrySandbox.cpp">
+      <Filter>Source\GeometrySandbox</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GeometrySandbox\GeometrySandbox.h">
+      <Filter>Source\GeometrySandbox</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GeometrySandbox\GeometrySandboxGameModeBase.cpp">
+      <Filter>Source\GeometrySandbox</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GeometrySandbox\GeometrySandboxGameModeBase.h">
+      <Filter>Source\GeometrySandbox</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
