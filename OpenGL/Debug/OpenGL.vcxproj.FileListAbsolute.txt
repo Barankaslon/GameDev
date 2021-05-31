@@ -1,0 +1,3 @@
+D:\GameDev\GameDev\OpenGL\Debug\OpenGL.vcxproj.CopyComplete
+D:\GameDev\GameDev\OpenGL\Debug\OpenGL.exe
+D:\GameDev\GameDev\OpenGL\Debug\glfw3.dll
