@@ -23,16 +23,21 @@ void Draw() {
 	system("cls");  // system("clear")
 	for (int i = 0; i < width; i++) {
 		cout << "#";
-		cout << endl;
+	cout << endl;
 
 		for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {
 				if (j == 0 || j == width - 1) {
 					cout << "#";
 					}
-				cout << "#";
+				cout << " ";
 			}
+			cout << endl;
 		}
+	}
+	for (int i = 0; i < width; i++) {
+		cout << "#";
+		cout << endl;
 	}
 }
 

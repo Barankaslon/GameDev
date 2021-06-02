@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\GeometrySandbox.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{7224C9EB-7CA5-4EFE-9702-784880DCD8CA}</UniqueIdentifier>
+      <UniqueIdentifier>{A1C056CB-4458-4023-9513-8B48567E8619}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\GeometrySandbox.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{FA2014FC-E6A3-4425-A3E6-0E6732580FE1}</UniqueIdentifier>
+      <UniqueIdentifier>{CE3CA8F4-1354-4B1A-BFBE-9032201F657A}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -24,7 +24,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\GeometrySandbox">
-      <UniqueIdentifier>{97CC46F6-6CFA-4D21-94AF-7781F05C7C38}</UniqueIdentifier>
+      <UniqueIdentifier>{C744115A-B21A-4AA7-9973-4BE008112C8F}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\GeometrySandbox\GeometrySandbox.Build.cs">
       <Filter>Source\GeometrySandbox</Filter>
@@ -40,6 +40,18 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\GeometrySandbox\GeometrySandboxGameModeBase.h">
       <Filter>Source\GeometrySandbox</Filter>
+    </ClInclude>
+    <Filter Include="Source\GeometrySandbox\Private">
+      <UniqueIdentifier>{18461AB7-821D-4D52-8696-BB5D70EB7E2E}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\GeometrySandbox\Private\BaseGeometryActor.cpp">
+      <Filter>Source\GeometrySandbox\Private</Filter>
+    </ClCompile>
+    <Filter Include="Source\GeometrySandbox\Public">
+      <UniqueIdentifier>{08C2B30A-2492-4F2D-ABAB-BADC672CB7F1}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\GeometrySandbox\Public\BaseGeometryActor.h">
+      <Filter>Source\GeometrySandbox\Public</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

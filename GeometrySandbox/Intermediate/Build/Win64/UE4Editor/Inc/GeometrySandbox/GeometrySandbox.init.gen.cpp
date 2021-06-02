@@ -21,8 +21,8 @@ void EmptyLinkFunctionForGeneratedCodeGeometrySandbox_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0xFAE17A3E,
-				0x1E4A11FB,
+				0xBE3E4059,
+				0xB77FF3DE,
 				METADATA_PARAMS(nullptr, 0)
 			};
 			UE4CodeGen_Private::ConstructUPackage(ReturnPackage, PackageParams);
