@@ -9,9 +9,16 @@ int main() {
 	RenderWindow window(VideoMode(800, 600), "Sfml Game");
 	window.setFramerateLimit(60);
 
+	window.setKeyRepeatEnabled(false);
+
 	bool play = true;
 
 	Event event;
+
+	bool aPressed = false;
+	bool aReleased = false;
+
+	bool space = false;
 
 	//Game Loop
 	while (play == true) 
@@ -21,12 +28,22 @@ int main() {
 		{
 			if (event.type  == Event::KeyPressed && event.key.code == Keyboard::A)
 			{
-				cout << "The A key has been pressed" << endl;
+				aPressed = true;
 			}
 
 			if (event.type == Event::KeyReleased && event.key.code == Keyboard::A)
 			{
-				cout << "The key has been released" << endl;
+				aReleased = true;
+			}
+
+			if (event.type == Event::KeyPressed && event.key.code == Keyboard::Space)
+			{
+				space = true;
+			}
+
+			if (event.type == Event::KeyReleased && event.key.code == Keyboard::Space)
+			{
+				space = false;
 			}
 
 			if (event.type == Event::Closed)
@@ -36,6 +53,30 @@ int main() {
 		}
 
 		//LOGIC
+
+		if (aPressed == true)
+		{
+			cout << "The A key has been pressed" << endl;
+
+			aPressed = false;
+		}
+
+		if (aReleased == true)
+		{
+			cout << "The key has been released" << endl;
+
+			aReleased = false;
+		}
+
+		if (space == true)
+		{
+			cout << "SPACE" << endl;
+		}
+
+		if (space == false)
+		{
+			cout << "NOT SPACE" << endl;
+		}
 
 		//RENDERING
 		window.clear();
