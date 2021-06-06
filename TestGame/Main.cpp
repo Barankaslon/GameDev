@@ -15,10 +15,15 @@ int main() {
 
 	Event event;
 
+	//States for button/events
+
 	bool aPressed = false;
 	bool aReleased = false;
-
 	bool space = false;
+	bool leftClick = false;
+
+	//Variables
+	int numberOfClicks = 0;
 
 	//Game Loop
 	while (play == true) 
@@ -46,6 +51,11 @@ int main() {
 				space = false;
 			}
 
+			if (event.type == Event::MouseButtonPressed && event.mouseButton.button == Mouse::Left)
+			{
+				leftClick = true;
+			}
+
 			if (event.type == Event::Closed)
 			{
 				play = false;
@@ -68,14 +78,13 @@ int main() {
 			aReleased = false;
 		}
 
-		if (space == true)
+		if (leftClick == true)
 		{
-			cout << "SPACE" << endl;
-		}
+			numberOfClicks++;
 
-		if (space == false)
-		{
-			cout << "NOT SPACE" << endl;
+			cout << "Number of Clicks is " << numberOfClicks << endl;
+
+			leftClick = false;
 		}
 
 		//RENDERING
