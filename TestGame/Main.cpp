@@ -24,6 +24,7 @@ int main() {
 
 	//Variables
 	int numberOfClicks = 0;
+	int mouseX, mouseY;
 
 	//Game Loop
 	while (play == true) 
@@ -49,6 +50,12 @@ int main() {
 			if (event.type == Event::KeyReleased && event.key.code == Keyboard::Space)
 			{
 				space = false;
+			}
+
+			if (event.type == Event::MouseMoved)
+			{
+				mouseX = event.mouseMove.x;
+				mouseY = event.mouseMove.y;
 			}
 
 			if (event.type == Event::MouseButtonPressed && event.mouseButton.button == Mouse::Left)
@@ -86,6 +93,8 @@ int main() {
 
 			leftClick = false;
 		}
+
+		cout << "Mouse x: " << mouseX << "Mouse y: " << mouseY << endl;
 
 		//RENDERING
 		window.clear();
