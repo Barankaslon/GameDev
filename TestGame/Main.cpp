@@ -1,5 +1,6 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include<SFML/Audio.hpp>
 
 	using namespace sf;
 	using namespace std;
@@ -55,6 +56,44 @@ int main() {
 	circle.setRadius(50);
 	circle.setPosition(400, 300);
 	circle.setFillColor(Color::Red);
+
+	//Fonts
+	Font font;
+	if (font.loadFromFile("Data/InkFree.ttf") == 0)
+	{
+		return 1;
+	}
+
+	//Text
+	Text title;
+	title.setFont(font);
+	title.setCharacterSize(30);
+	title.setString("Test Game");
+	title.setPosition(350, 100);
+	title.setFillColor(Color::Yellow);
+
+	//Sounds
+	SoundBuffer JumpBuffer;
+	if (JumpBuffer.loadFromFile("Data/Jump.wav") == 0)
+	{
+		return 1;
+	}
+
+	Sound Jump;
+	Jump.setBuffer(JumpBuffer);
+	Jump.setLoop(true);
+
+	Jump.play();
+
+	//Music
+	Music drumLoop;
+	if (drumLoop.openFromFile("Data/electro.ogg") == 0)
+	{
+		return 1;
+	}
+
+	drumLoop.setLoop(true);
+	drumLoop.play();
 
 	//Game Loop
 	while (play == true) 
@@ -195,6 +234,7 @@ int main() {
 		window.clear();
 			
 		window.draw(rect);
+		window.draw(title);
 		window.draw(circle);
 
 		window.display();
