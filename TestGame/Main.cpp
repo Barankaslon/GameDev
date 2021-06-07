@@ -6,7 +6,7 @@
 
 int main() {
 
-	RenderWindow window(VideoMode(800, 600), "Sfml Game");
+	RenderWindow window(VideoMode(800, 600), "Sfml TestGame");
 	window.setFramerateLimit(60);
 
 	window.setKeyRepeatEnabled(false);
@@ -28,7 +28,33 @@ int main() {
 
 	//Variables
 	int numberOfClicks = 0;
-	int mouseX, mouseY;
+	int mouseX = 0, mouseY = 0;
+	int rectXPosition = 0;
+
+	//Images
+	Texture image1;
+	if (image1.loadFromFile("Data/image1.png") == -1)
+	{
+		return 1;
+	}
+
+	Texture cloud;
+	if (cloud.loadFromFile("Data/cloud2.png") == -1)
+	{
+		return 1;
+	}
+
+	//Render Shapes
+
+	RectangleShape rect;
+	rect.setSize(Vector2f(150, 100));
+	rect.setPosition(0, 0);
+	rect.setTexture(&cloud);
+
+	CircleShape circle;
+	circle.setRadius(50);
+	circle.setPosition(400, 300);
+	circle.setFillColor(Color::Red);
 
 	//Game Loop
 	while (play == true) 
@@ -162,8 +188,14 @@ int main() {
 
 		//cout << "Mouse x: " << mouseX << "Mouse y: " << mouseY << endl;
 
+		rectXPosition++;
+		rect.setPosition(rectXPosition, 0);
+
 		//RENDERING
 		window.clear();
+			
+		window.draw(rect);
+		window.draw(circle);
 
 		window.display();
 	}
