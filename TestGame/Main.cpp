@@ -20,7 +20,11 @@ int main() {
 	bool aPressed = false;
 	bool aReleased = false;
 	bool space = false;
+	bool returnReleased = false;
 	bool leftClick = false;
+	bool rightClick = false;
+	bool rightArrow = false;
+	bool leftArrow = false;
 
 	//Variables
 	int numberOfClicks = 0;
@@ -42,6 +46,26 @@ int main() {
 				aReleased = true;
 			}
 
+			if (event.type == Event::KeyPressed && event.key.code == Keyboard::Left)
+			{
+				leftArrow = true;
+			}
+
+			if (event.type == Event::KeyReleased && event.key.code == Keyboard::Left)
+			{
+				leftArrow = false;
+			}
+
+			if (event.type == Event::KeyPressed && event.key.code == Keyboard::Right)
+			{
+				rightArrow = true;
+			}
+
+			if (event.type == Event::KeyReleased && event.key.code == Keyboard::Right)
+			{
+				rightArrow = false;
+			}
+
 			if (event.type == Event::KeyPressed && event.key.code == Keyboard::Space)
 			{
 				space = true;
@@ -50,6 +74,11 @@ int main() {
 			if (event.type == Event::KeyReleased && event.key.code == Keyboard::Space)
 			{
 				space = false;
+			}
+
+			if (event.type == Event::KeyReleased && event.key.code == Keyboard::Return)
+			{
+				returnReleased = true;
 			}
 
 			if (event.type == Event::MouseMoved)
@@ -61,6 +90,11 @@ int main() {
 			if (event.type == Event::MouseButtonPressed && event.mouseButton.button == Mouse::Left)
 			{
 				leftClick = true;
+			}
+
+			if (event.type == Event::MouseButtonPressed && event.mouseButton.button == Mouse::Right)
+			{
+				rightClick = true;
 			}
 
 			if (event.type == Event::Closed)
@@ -85,16 +119,48 @@ int main() {
 			aReleased = false;
 		}
 
+		if (returnReleased == true)
+		{
+			cout << "Return has been released" << endl;
+
+			returnReleased = false;
+		}
+
 		if (leftClick == true)
 		{
 			numberOfClicks++;
 
 			cout << "Number of Clicks is " << numberOfClicks << endl;
 
+			if (mouseX < 200)
+			{
+				window.close();
+
+				play = false;
+			}
+
 			leftClick = false;
 		}
 
-		cout << "Mouse x: " << mouseX << "Mouse y: " << mouseY << endl;
+		if (rightClick == true)
+		{
+			numberOfClicks--;
+
+			cout << "Number of Clicks is " << numberOfClicks << endl;
+
+			rightClick = false;
+		}
+
+		if (leftArrow == true && rightArrow == true)
+		{
+			cout << " Left arrow key and Right arrow key are pressed down together " << endl;
+
+			leftArrow = false;
+			rightArrow = false;
+
+		}
+
+		//cout << "Mouse x: " << mouseX << "Mouse y: " << mouseY << endl;
 
 		//RENDERING
 		window.clear();
