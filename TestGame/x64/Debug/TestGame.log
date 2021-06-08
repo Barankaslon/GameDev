@@ -1,3 +1,5 @@
 ﻿  Main.cpp
-D:\GameDev\GameDev\TestGame\Main.cpp(64,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\GameDev\GameDev\TestGame\Main.cpp(88,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\GameDev\GameDev\TestGame\Main.cpp(134,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\GameDev\GameDev\TestGame\Main.cpp(134,15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   TestGame.vcxproj -> D:\GameDev\GameDev\TestGame\x64\Debug\TestGame.exe

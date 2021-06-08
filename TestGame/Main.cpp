@@ -25,9 +25,16 @@ int main() {
 
 	//States
 	bool rButton = false;
+	bool leftButton = false;
+	bool rightButton = false;
+	bool upButton = false;
+	bool downButton = false;
+
 
 	//Variables
 	int rectRotation = 0;
+	int xVelocity = 0;
+	int yVelocity = 0;
 
 	//Shapes
 	RectangleShape shape1;
@@ -54,6 +61,23 @@ int main() {
 			{
 				rButton = false;
 			}
+
+			if (event.type == Event::KeyPressed)
+			{
+				if (event.key.code == Keyboard::Left) leftButton = true;
+				if (event.key.code == Keyboard::Right) rightButton = true;
+				if (event.key.code == Keyboard::Up) upButton = true;
+				if (event.key.code == Keyboard::Down) downButton = true;
+			}
+
+			if (event.type == Event::KeyReleased)
+			{
+				if (event.key.code == Keyboard::Left) leftButton = false;
+				if (event.key.code == Keyboard::Right) rightButton = false;
+				if (event.key.code == Keyboard::Up) upButton = false;
+				if (event.key.code == Keyboard::Down) downButton = false;
+			}
+
 		}
 
 		//LOGIC
@@ -63,6 +87,51 @@ int main() {
 			rectRotation++;
 			shape1.setRotation(rectRotation);
 		}
+
+		//Movement
+		//X axis
+		if (rightButton == true)
+		{
+			xVelocity = 5;
+		}
+
+		if (leftButton == true)
+		{
+			xVelocity = -5;
+		}
+
+		if (leftButton == true && rightButton == true)
+		{
+			xVelocity = 0;
+		}
+
+		if (leftButton == false && rightButton == false)
+		{
+			xVelocity = 0;
+		}
+		//Y axis
+		if (downButton == true)
+		{
+			yVelocity = 5;
+		}
+
+		if (upButton == true)
+		{
+			yVelocity = -5;
+		}
+
+		if (upButton == true && downButton == true)
+		{
+			yVelocity = 0;
+		}
+
+		if (upButton == false && downButton == false)
+		{
+			yVelocity = 0;
+		}
+
+		//Move
+		shape1.move(xVelocity, yVelocity);
 
 		//RENDERING
 		window.clear();
