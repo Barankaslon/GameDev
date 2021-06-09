@@ -41,6 +41,11 @@ int main() {
 	shape1.setSize(Vector2f(50, 50));
 	shape1.setPosition(400, 300);
 
+	RectangleShape shape2;
+	shape2.setSize(Vector2f(100, 200));
+	shape2.setPosition(200, 200);
+	shape2.setFillColor(Color::Red);
+
 	//Game Loop
 	while (play == true) 
 	{
@@ -131,12 +136,25 @@ int main() {
 		}
 
 		//Move
-		shape1.move(xVelocity, yVelocity);
+		shape1.move(xVelocity, 0);
+
+		if (shape1.getGlobalBounds().intersects(shape2.getGlobalBounds()) == true)
+		{
+			shape1.move(-xVelocity, 0);
+		}
+
+		shape1.move(0, yVelocity);
+
+		if (shape1.getGlobalBounds().intersects(shape2.getGlobalBounds()) == true)
+		{
+			shape1.move(-0, -yVelocity);
+		}
 
 		//RENDERING
 		window.clear();
 
 		window.draw(shape1);
+		window.draw(shape2);
 
 		window.display();
 	}
