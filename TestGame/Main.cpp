@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 #include <SFML/Graphics.hpp>
 #include<SFML/Audio.hpp>
 
@@ -23,6 +24,13 @@ int main() {
 		return 1;
 	}
 
+	Text score;
+	score.setFont(font);
+	score.setCharacterSize(30);
+	score.setFillColor(Color::Red);
+	score.setPosition(350, 10);
+	score.setString("0 : 0");
+
 	//Images
 	Texture tex_pad;
 	Texture tex_ball;
@@ -45,6 +53,9 @@ int main() {
 	//Sounds
 
 	SoundBuffer buff_hit;
+	Sound hit;
+	hit.setBuffer(buff_hit);
+
 	if (buff_hit.loadFromFile("Data/hit.wav") == false)
 	{
 		return -1;
@@ -57,8 +68,11 @@ int main() {
 
 	//Variables
 	int yVelociryPad1 = 0;
-	int xVelocityBall = 3;
-	int yVelocityBall = 3;
+	int xVelocityBall = 4;
+	int yVelocityBall = 4;
+	int yVelocityPad2 = 0;
+	int pad1Score = 0;
+	int pad2Score = 0;
 
 	///////////Shapes
 	// Background
@@ -150,8 +164,22 @@ int main() {
 			pad1.setPosition(50, 500);
 		}
 
+		//Pad2
+
+		if (ball.getPosition().y < pad2.getPosition().y)
+		{
+			yVelocityPad2 = -4;
+		}
+
+		if (ball.getPosition().y > pad2.getPosition().y)
+		{
+			yVelocityPad2 = 4;
+		}
+
+		pad2.move(0, yVelocityPad2);
+
 		//Ball
-		ball.move(xVelocityBall, yVelocityBall);
+			ball.move(xVelocityBall, yVelocityBall);
 
 		if (ball.getPosition().y < 0)
 		{
@@ -163,6 +191,32 @@ int main() {
 			yVelocityBall = -yVelocityBall;
 		}
 
+		if (ball.getPosition().x < -50)
+		{
+			pad2Score++;
+			ball.setPosition(300, 200);
+		}
+
+		if (ball.getPosition().x > 800)
+		{
+			pad1Score++;
+			ball.setPosition(300, 200);
+		}
+
+		//Colision for Pad1
+		if (ball.getGlobalBounds().intersects(pad1.getGlobalBounds()) == true)
+		{
+			xVelocityBall = -xVelocityBall;
+			hit.play();
+		}
+
+		//Colision for Pad2
+		if (ball.getGlobalBounds().intersects(pad2.getGlobalBounds()) == true)
+		{
+			xVelocityBall = -xVelocityBall;
+			hit.play();
+		}
+
 		//RENDERING
 		window.clear();
 
@@ -170,6 +224,11 @@ int main() {
 		window.draw(pad1);
 		window.draw(pad2);
 		window.draw(ball);
+
+		stringstream text;
+		text << pad1Score << " : " << pad2Score;
+		score.setString(text.str());
+		window.draw(score);
 
 		window.display();
 	}
