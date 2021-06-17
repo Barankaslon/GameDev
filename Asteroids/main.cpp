@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include <list>
 
 using namespace sf;
 
@@ -7,19 +8,111 @@ const int H = 800;
 
 float DEGTORAD = 0.017453f;
 
+class Animation
+{
+public:
+	float Frame, speed;
+	Sprite sprite;
+	std::vector<IntRect> frames;
+
+	Animation() {}
+
+	Animation(Texture& t, int x, int y, int w, int h, int count, float Speed) 
+	{
+		Frame = 0;
+		speed = Speed;
+
+		for (int i = 0; i < count; i++) {
+			frames.push_back(IntRect(x + i * w, y, w, h));
+		}
+
+		sprite.setTexture(t);
+		sprite.setOrigin(w / 2, h / 2);
+		sprite.setTextureRect(frames[0]);
+	}
+
+	void update()
+	{
+		Frame += speed;
+		int n = frames.size();
+		if (Frame > n) Frame -= n;
+		if (n > 0) sprite.setTextureRect( frames[ int(Frame) ] );
+	}
+};
+
+class Entity
+{
+public:
+	float x, y, dx, dy, R, angle;
+	bool life;
+	std::string name;
+	Animation anim;
+
+	Entity() { life = 1; }
+
+	void settings(Animation& a, int X, int Y, float Angle = 0, int radius = 1)
+	{
+		x = X; y = Y; anim = a;
+		angle = Angle;
+		R = radius;
+	}
+
+	virtual void update() {};
+
+	void draw(RenderWindow& app)
+	{
+		anim.sprite.setPosition(x, y);
+		anim.sprite.setRotation(angle + 90);
+		app.draw(anim.sprite);
+	}
+
+};
+
+class asteroid : public Entity
+{
+public:
+	asteroid()
+	{
+		dx = rand() %8 - 4;
+		dy = rand() % 8 - 4;
+		name = "asteroid";
+	}
+
+	void update()
+	{
+		x += dx;
+		y += dy;
+		if (x > W) x = 0; if (x < 0) x = W;
+		if (y > H) y = 0; if (y < 0) y = H;
+	}
+};
+
 int main() {
 
 	RenderWindow app(VideoMode(W, H), "Asteroids!");
 	app.setFramerateLimit(60);
 
-	Texture t1, t2, t3;
+	Texture t1, t2, t3, t4;
 	t1.loadFromFile("images/spaceship.png");
 	t2.loadFromFile("images/background.jpg");
 	t3.loadFromFile("images/explosions/type_A.png");
+	t4.loadFromFile("images/rock.png");
 
 	Sprite sPlayer(t1), sBackground(t2), sExplosion(t3);
 	sPlayer.setTextureRect(IntRect(40, 0, 40, 40));
 	sPlayer.setOrigin(20, 20);
+
+	Animation sRock(t4, 0, 0, 64, 64, 16, 0.2);
+	sRock.sprite.setPosition(400, 400);
+
+	std::list<Entity*> entities;
+
+	for (int i = 0; i < 15; i++)
+	{
+		asteroid *a =  new asteroid();
+		a->settings(sRock, rand() % W, rand() % H, rand() % 360, 25);
+		entities.push_back(a);
+	}
 
 	sExplosion.setPosition(200, 300);
 	float Frame = 0;
@@ -98,11 +191,27 @@ int main() {
 		sPlayer.setPosition(x, y);
 		sPlayer.setRotation(angle + 90);
 
+		sRock.update();
+
+		for (auto i = entities.begin(); i != entities.end();)
+		{
+			Entity* e = *i;
+			e->update();
+			e->anim.update();
+
+			if (e->life == false) { i = entities.erase(i); delete e; }
+			else i++;
+		}
+
+
+
 		///////draw///////
 		app.clear();
 		app.draw(sBackground);
 		app.draw(sPlayer);
-		app.draw(sExplosion);
+		for (auto i : entities) i->draw(app);
+		//app.draw(sExplosion);
+		//app.draw(sRock.sprite);
 		app.display();
 	}
 

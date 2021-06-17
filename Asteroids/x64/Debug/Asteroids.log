@@ -1,7 +1,17 @@
 ﻿  main.cpp
-D:\GameDev\GameDev\Asteroids\main.cpp(26,23): warning C4305: 'initializing': truncation from 'double' to 'float'
-D:\GameDev\GameDev\Asteroids\main.cpp(72,37): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-D:\GameDev\GameDev\Asteroids\main.cpp(73,37): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-D:\GameDev\GameDev\Asteroids\main.cpp(77,14): warning C4305: '*=': truncation from 'double' to 'float'
-D:\GameDev\GameDev\Asteroids\main.cpp(78,14): warning C4305: '*=': truncation from 'double' to 'float'
+D:\GameDev\GameDev\Asteroids\main.cpp(30,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\GameDev\GameDev\Asteroids\main.cpp(30,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\GameDev\GameDev\Asteroids\main.cpp(37,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\GameDev\GameDev\Asteroids\main.cpp(55,7): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\GameDev\GameDev\Asteroids\main.cpp(55,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\GameDev\GameDev\Asteroids\main.cpp(57,7): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\GameDev\GameDev\Asteroids\main.cpp(76,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\GameDev\GameDev\Asteroids\main.cpp(77,19): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\GameDev\GameDev\Asteroids\main.cpp(105,43): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\GameDev\GameDev\Asteroids\main.cpp(113,53): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\GameDev\GameDev\Asteroids\main.cpp(119,23): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\GameDev\GameDev\Asteroids\main.cpp(165,37): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\GameDev\GameDev\Asteroids\main.cpp(166,37): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\GameDev\GameDev\Asteroids\main.cpp(170,14): warning C4305: '*=': truncation from 'double' to 'float'
+D:\GameDev\GameDev\Asteroids\main.cpp(171,14): warning C4305: '*=': truncation from 'double' to 'float'
   Asteroids.vcxproj -> D:\GameDev\GameDev\Asteroids\x64\Debug\Asteroids.exe
