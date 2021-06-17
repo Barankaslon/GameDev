@@ -1,6 +1,7 @@
 ﻿  main.cpp
-D:\GameDev\GameDev\Asteroids\main.cpp(59,37): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-D:\GameDev\GameDev\Asteroids\main.cpp(60,37): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-D:\GameDev\GameDev\Asteroids\main.cpp(64,14): warning C4305: '*=': truncation from 'double' to 'float'
-D:\GameDev\GameDev\Asteroids\main.cpp(65,14): warning C4305: '*=': truncation from 'double' to 'float'
+D:\GameDev\GameDev\Asteroids\main.cpp(26,23): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\GameDev\GameDev\Asteroids\main.cpp(72,37): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\GameDev\GameDev\Asteroids\main.cpp(73,37): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\GameDev\GameDev\Asteroids\main.cpp(77,14): warning C4305: '*=': truncation from 'double' to 'float'
+D:\GameDev\GameDev\Asteroids\main.cpp(78,14): warning C4305: '*=': truncation from 'double' to 'float'
   Asteroids.vcxproj -> D:\GameDev\GameDev\Asteroids\x64\Debug\Asteroids.exe
